@@ -41,12 +41,27 @@ catch (PDOException $exception){
 //echo ($fov['name']);
 
 
-$userID = 3;
+//$userID = 3;
+//
+//$sql = "select * from users where id = :id";
+//
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute(['id' => $userID]);
+//
+//$fov = $stmt->fetch(PDO::FETCH_ASSOC);
+//echo ($fov['name']);
 
-$sql = "select * from users where id = :id";
 
+$name = 'Михаил Палыч';
+$age = 45;
+$login = 'pavlik228';
+$password = 'passw@rd';
+
+$sql = "insert into users (name, age, login, password) values (:name, :age, :login, :password)";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(['id' => $userID]);
-
-$fov = $stmt->fetch(PDO::FETCH_ASSOC);
-echo ($fov['name']);
+$stmt->execute([
+    'name' => $name,
+    'age' => $age,
+    'login' => $login,
+    'password' => $password
+]);
