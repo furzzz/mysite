@@ -52,16 +52,31 @@ catch (PDOException $exception){
 //echo ($fov['name']);
 
 
-$name = 'Михаил Палыч';
-$age = 45;
-$login = 'pavlik228';
-$password = 'passw@rd';
+//$name = 'Михаил Палыч';
+//$age = 45;
+//$login = 'pavlik228';
+//$password = 'passw@rd';
+//
+//$sql = "insert into users (name, age, login, password) values (:name, :age, :login, :password)";
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute([
+//    'name' => $name,
+//    'age' => $age,
+//    'login' => $login,
+//    'password' => $password
+//]);
 
-$sql = "insert into users (name, age, login, password) values (:name, :age, :login, :password)";
+//
+//$userId = 4;
+//$newPassword = 'VeryStrongPassw@rd';
+//$sql = "UPDATE users SET password = :password WHERE id = :id";
+//$stmt = $pdo->prepare($sql);
+//$stmt->execute([
+//    'password' => $newPassword,
+//    'id' => $userId,
+//]);
+
+$userId = 4;
+$sql = "DELETE FROM users WHERE id = ?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([
-    'name' => $name,
-    'age' => $age,
-    'login' => $login,
-    'password' => $password
-]);
+$stmt->execute([$userId]);
